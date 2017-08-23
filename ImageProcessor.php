@@ -164,6 +164,7 @@ class ImageProcessor {
 
     /**
      * @param int $canvasFit
+     * @return $this
      */
     public function setCanvasFit(int $canvasFit = self::CANVAS_FIT_CROP)
     {
@@ -289,8 +290,11 @@ class ImageProcessor {
      */
     public function save(string $outputPath)
     {
-        if ( !is_writable($outputPath) ) {
+        if ( file_exists($outputPath) && !is_writable($outputPath) ) {
             throw new \Exception('File not writable.');
+        }
+        if ( file_exists(dirname($outputPath)) && !is_writable(dirname($outputPath)) ) {
+            throw new \Exception('Directory not writable.');
         }
         file_put_contents($outputPath, $this->getFileData(self::DATA_ENCODING_RAW));
         return $this;
@@ -427,7 +431,7 @@ class ImageProcessor {
                 break;
 
             case self::TYPE_PNG:
-                imagepng($this->getTarget()->getResource(), null, $this->getQuality());
+                imagepng($this->getTarget()->getResource(), null, round(($this->getQuality() / 100) * 9));
                 break;
 
             default:
