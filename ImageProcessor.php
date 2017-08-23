@@ -4,7 +4,7 @@ namespace WidgetsNL\ImageProcessor;
 
 class ImageProcessor {
 
-    const OBJECT_FIT_STRETCH = 1;
+    const OBJECT_FIT_FILL = 1;
     const OBJECT_FIT_CONTAIN = 2;
     const OBJECT_FIT_COVER = 3;
 
@@ -346,8 +346,8 @@ class ImageProcessor {
         $sourceHeight = $this->getSource()->getHeight();
         $sourceRatio = $sourceWidth / $sourceHeight;
 
-        $targetWidth = $this->getWidth();
-        $targetHeight = $this->getHeight();
+        $targetWidth = $this->getWidth() ?: $sourceWidth;
+        $targetHeight = $this->getHeight() ?: $sourceHeight;
         $targetRatio = $targetWidth / $targetHeight;
 
         $canvasWidth = $targetWidth;
