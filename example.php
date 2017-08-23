@@ -3,7 +3,7 @@
     require_once 'ImageProcessor.php';
     require_once 'ImageResource.php';
 
-    use Widgets\ImageProcessor\ImageProcessor;
+    use WidgetsNL\ImageProcessor\ImageProcessor;
 
     $image = new ImageProcessor('sample_images/landscape.jpg');
 //    $image = new ImageProcessor('sample_images/portrait.jpg');

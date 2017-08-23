@@ -1,6 +1,6 @@
 <?php
 
-namespace Widgets\ImageProcessor;
+namespace WidgetsNL\ImageProcessor;
 
 class ImageProcessor {
 
