@@ -11,8 +11,7 @@
 //    $image = new ImageProcessor('sample_images/alpha-channel.png');
 
     $image
-//        ->setObjectFit(ImageProcessor::OBJECT_FIT_COVER)
-        ->setObjectFit(ImageProcessor::OBJECT_FIT_CONTAIN)
+        ->setObjectFit(ImageProcessor::OBJECT_FIT_COVER)
         ->setCanvasFit(ImageProcessor::CANVAS_FIT_KEEP)
         ->setWidth(200)
         ->setHeight(200)

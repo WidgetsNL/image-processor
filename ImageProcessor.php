@@ -263,6 +263,7 @@ class ImageProcessor {
     }
 
     /**
+     * @param int $encoding
      * @return string
      */
     public function getFileData(int $encoding = self::DATA_ENCODING_RAW)
@@ -336,49 +337,33 @@ class ImageProcessor {
         return $this;
     }
 
+    /**
+     * This is where the magic happens
+     */
     private function render() {
 
         $sourceWidth = $this->getSource()->getWidth();
         $sourceHeight = $this->getSource()->getHeight();
-
         $sourceRatio = $sourceWidth / $sourceHeight;
-        $sourceOrientation = $sourceRatio > 1 ? 'LANDSCAPE' : 'PORTRAIT';
 
         $targetWidth = $this->getWidth();
         $targetHeight = $this->getHeight();
+        $targetRatio = $targetWidth / $targetHeight;
 
         $canvasWidth = $targetWidth;
         $canvasHeight = $targetHeight;
 
-        if ( $this->getObjectFit() == self::OBJECT_FIT_COVER ) {
-            if ( $sourceOrientation === 'LANDSCAPE' ) {
-                $canvasWidth = $targetWidth;
-                $targetWidth = $targetHeight * $sourceRatio;
+        $contain = $this->getObjectFit() === self::OBJECT_FIT_CONTAIN;
 
-            } else {
-                $canvasHeight = $targetHeight;
-                $targetHeight = $targetWidth / $sourceRatio;
-            }
+        if ( $contain ? ($sourceRatio > $targetRatio) : ($sourceRatio < $targetRatio) ) {
+            $targetHeight = $targetWidth / $sourceRatio;
+        } else {
+            $targetWidth = $targetHeight * $sourceRatio;
+        }
 
-            if ( $targetWidth < $canvasWidth ) {
-                $targetWidth = $canvasWidth;
-                $targetHeight = $targetWidth / $sourceRatio;
-
-            } else if ( $targetHeight < $canvasHeight ) {
-                $targetHeight = $canvasHeight;
-                $targetWidth = $targetHeight * $sourceRatio;
-            }
-
-        } else if ( $this->getObjectFit() === self::OBJECT_FIT_CONTAIN ) {
-            if ( $sourceOrientation === 'PORTRAIT' ) {
-                $targetWidth = $targetHeight * $sourceRatio;
-            } else {
-                $targetHeight = $targetWidth / $sourceRatio;
-            }
-            if ( $this->getCanvasFit() == self::CANVAS_FIT_CROP ) {
-                $canvasWidth = $targetWidth;
-                $canvasHeight = $targetHeight;
-            }
+        if ( $this->getCanvasFit() === self::CANVAS_FIT_CROP ) {
+            $canvasWidth = $targetWidth;
+            $canvasHeight = $targetHeight;
         }
 
         $targetX = round(($canvasWidth - $targetWidth) / 2);
@@ -403,16 +388,9 @@ class ImageProcessor {
         }
 
         imagecopyresampled(
-            $canvas,
-            $this->getSource()->getResource(),
-            $targetX,
-            $targetY,
-            0,
-            0,
-            $targetWidth,
-            $targetHeight,
-            $sourceWidth,
-            $sourceHeight
+            $canvas, $this->getSource()->getResource(),
+            $targetX, $targetY, 0, 0,
+            $targetWidth, $targetHeight, $sourceWidth, $sourceHeight
         );
 
         $target = new ImageResource();
@@ -421,6 +399,9 @@ class ImageProcessor {
 
     }
 
+    /**
+     * @return string
+     */
     private function getImageData() {
 
         ob_start();
