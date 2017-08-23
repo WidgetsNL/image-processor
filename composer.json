@@ -1,0 +1,12 @@
+{
+  "name": "WidgetsNL/ImageProcessor",
+  "description": "A PHP library to resize / convert images",
+  "authors": [
+    {
+      "name": "Wouter Smit",
+      "email": "wouter@widgets.nl",
+      "role": "developer",
+      "homepage": "http://www.widgets.nl"
+    }
+  ]
+}
