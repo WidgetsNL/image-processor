@@ -1,5 +1,7 @@
 {
   "name": "widgets-nl/image-processor",
+  "type": "library",
+  "license": "proprietary",
   "description": "A PHP library to resize / convert images",
   "require": {
       "php": ">=7.0"
