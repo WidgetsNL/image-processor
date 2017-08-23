@@ -1,6 +1,12 @@
 {
   "name": "widgets-nl/image-processor",
   "description": "A PHP library to resize / convert images",
+  "require": {
+      "php": ">=7.0"
+  },
+  "autoload": {
+      "psr-4": { "WidgetsNL\\ImageProcessor\\": "" }
+  },
   "authors": [
     {
       "name": "Wouter Smit",
