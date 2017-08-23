@@ -1,7 +1,7 @@
 <?php
 
-    require_once 'src/Widgets/ImageProcessor/ImageProcessor.php';
-    require_once 'src/Widgets/ImageProcessor/ImageResource.php';
+    require_once 'ImageProcessor.php';
+    require_once 'ImageResource.php';
 
     use Widgets\ImageProcessor\ImageProcessor;
 
