@@ -136,7 +136,7 @@ $image = new ImageProcessor(file_get_contents('test.jpg'));
 
 #### `public function` setResourceFromPath`(string $path) : ImageProcessor`<a name="reference-image-processor-set-resource-from-path"></a>
 Loads image from specified path.
-Creates an `ImageResource` instance internally.
+Creates an [`ImageResource`](#reference-image-resource) instance internally.
 
 For chainability, this method returns the `ImageProcessor` instance.
 
@@ -156,7 +156,7 @@ $image->setResourceFromPath('test.jpg');
 
 #### `public function` setResourceFromFileData`(string $fileData) : ImageProcessor`<a name="reference-image-processor-set-resource-from-file-data"></a>
 Loads image from raw image data.
-Creates an `ImageResource` instance internally.
+Creates an [`ImageResource`](#reference-image-resource) instance internally.
 
 For chainability, this method returns the `ImageProcessor` instance.
 
@@ -175,11 +175,11 @@ $image->setResourceFromFileData(file_get_contents('test.jpg'));
 
 
 #### `public function` getWidth`() : int`<a name="reference-image-processor-get-width"></a>
-Returns the current [`width`](#reference-image-processor-width) setting.
+Returns the current width setting.
 
 
 #### `public function` setWidth`(int $width) : ImageProcessor`<a name="reference-image-processor-set-width"></a>
-Set the [`width`](#reference-image-processor-width) of the output image.
+Set the width of the output image.
 
 For chainability, this method returns the `ImageProcessor` instance.
 
@@ -201,11 +201,11 @@ $image
 
 
 #### `public function` getHeight`() : int`<a name="reference-image-processor-get-height"></a>
-Returns the current [`height`](#reference-image-processor-height) setting.
+Returns the current height setting.
 
 
 #### `public function` setHeight`(int $height) : ImageProcessor`<a name="reference-image-processor-set-height"></a>
-Set the [`height`](#reference-image-processor-height) of the output image.
+Set the height of the output image.
 
 For chainability, this method returns the `ImageProcessor` instance.
 
@@ -475,4 +475,4 @@ $image
 
 
 ### `class` ImageResource<a name="reference-image-resource"></a>
-...
+This class is used internally and has no accessible public members or methods.
