@@ -1,6 +1,44 @@
 # ImageProcessor
 A PHP library to resize / convert images
 
+## Table of contents
+- [Requirements](#requirements)
+- [Installation](#installation)
+    - [Composer](#installation-composer)
+    - [Manual installation](#installation-manual)
+- [Usage](#usage)
+    - [Basic usage](#usage-basic)
+    - [Specify image type](#usage-type)
+    - [Output to string](#usage-output-raw)
+    - [Output to base64 encoded string / base64 data URI](#usage-output-base64)
+- [Reference](#reference)
+    - [ImageProcessor](#reference-image-processor)
+        - [__construct()](#reference-image-processor-constructor)
+        - [setResourceFromPath()](#reference-image-processor-set-source-from-path)
+        - [setResourceFromFileData()](#reference-image-processor-set-source-from-file-data)
+        - [getWidth()](#reference-image-processor-get-width)
+        - [setWidth()](#reference-image-processor-set-width)
+        - [getHeight()](#reference-image-processor-get-height)
+        - [setHeight()](#reference-image-processor-set-height)
+        - [Object fit](#reference-image-processor-object-fit)
+            - [getObjectFit()](#reference-image-processor-get-object-fit)
+            - [setObjectFit()](#reference-image-processor-set-object-fit)
+        - [Canvas fit](#reference-image-processor-canvas-fit)
+            - [getCanvasFit()](#reference-image-processor-get-canvas-fit)
+            - [setCanvasFit()](#reference-image-processor-set-canvas-fit)
+        - [Type](#reference-image-processor-type)
+            - [getType()](#reference-image-processor-get-type)
+            - [setType()](#reference-image-processor-set-type)
+        - [Quality](#reference-image-processor-quality)
+            - [getQuality()](#reference-image-processor-get-quality)
+            - [setQuality()](#reference-image-processor-set-quality)
+        - [Background](#reference-image-processor-background)
+            - [getBackground()](#reference-image-processor-get-background)
+            - [setBackground()](#reference-image-processor-set-background)
+        - [getFileData()](#reference-image-processor-get-file-data)
+        - [save()](#reference-image-processor-save)
+    - [ImageResource](#reference-image-resource)
+
 ## Requirements<a name="requirements"></a>
 - PHP 7+
 - [GD library](http://php.net/manual/en/book.image.php)
@@ -33,9 +71,9 @@ require_once 'ImageProcessor.php';
 require_once 'ImageResource.php';
 ```
 
-## Usage
+## Usage<a name="usage"></a>
 
-#### Basic usage
+#### Basic usage<a name="usage-basic"></a>
 
 ```php
 <?php
@@ -50,7 +88,7 @@ require_once 'ImageResource.php';
     ;
 ```
 
-#### Specify image format
+#### Specify image type<a name="usage-type"></a>
 
 ```php
 <?php
@@ -64,7 +102,7 @@ require_once 'ImageResource.php';
     ;
 ```
 
-#### Output to string
+#### Output to string<a name="usage-output-raw"></a>
 
 ```php
 <?php
@@ -83,7 +121,7 @@ require_once 'ImageResource.php';
 ```
 
 
-#### Output to base64 encoded string / base64 data URI
+#### Output to base64 encoded string / base64 data URI<a name="usage-output-base64"></a>
 
 ```php
 <?php
@@ -451,7 +489,7 @@ $rawImageData = $image->getFileData();
 ```
 
 
-#### `public function` save`(string $outputPath) : ImageProcessor`<a name="reference-image-processor-get-file-data"></a>
+#### `public function` save`(string $outputPath) : ImageProcessor`<a name="reference-image-processor-save"></a>
 Saves the output image to given path.
 
 For chainability, this method returns the `ImageProcessor` instance.
