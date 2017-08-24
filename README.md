@@ -62,9 +62,9 @@ composer require widgets-nl/image-processor
 ```
 
 ### Manual installation<a name="installation-manual"></a>
-- Clone the project
+- Clone or download the project
 - Copy `ImageProcessor.php` and `ImageResource.php` to your directory of choice.
-- Make sure the two files are included/required/autoloaded, e.g.:
+- Make sure the two files are included/autoloaded, e.g.:
 
 ```php
 require_once 'ImageProcessor.php';
