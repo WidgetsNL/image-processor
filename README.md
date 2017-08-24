@@ -1,5 +1,4 @@
-# WidgetsNL/ImageProcessor
-
+# ImageProcessor
 A PHP library to resize / convert images
 
 ## Requirements<a name="requirements"></a>
