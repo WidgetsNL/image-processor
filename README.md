@@ -49,16 +49,6 @@ A PHP library to resize / convert images
 
 <a name="installation-composer"></a>
 #### Using Composer
-Add the repository to your `composer.json`
-```
-"repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/WidgetsNL/image-processor"
-        }
-    ]
-```
-
 Run the following command:
 ```
 composer require widgets-nl/image-processor
