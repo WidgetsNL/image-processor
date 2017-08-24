@@ -58,7 +58,7 @@ composer require widgets-nl/image-processor
 ### Manual installation
 - Clone or download the project
 - Copy `ImageProcessor.php` and `ImageResource.php` to your directory of choice.
-- Make sure the two files are included/autoloaded, e.g.:
+- Make sure the two files are autoloaded / included e.g.:
 
 ```php
 require_once 'ImageProcessor.php';
@@ -146,7 +146,8 @@ require_once 'ImageResource.php';
 ## Reference
 
 <a name="reference-image-processor"></a>
-### `class` ImageProcessor
+
+<br/>### `class` ImageProcessor
 
 <a name="reference-image-processor-constructor"></a>
 #### `public function` __construct`(string $pathOrFileData = '') : ImageProcessor`
@@ -172,6 +173,7 @@ $image = new ImageProcessor('test.jpg');
 $image = new ImageProcessor(file_get_contents('test.jpg'));
 ```
 
+<br/>
 
 <a name="reference-image-processor-set-resource-from-path"></a>
 #### `public function` setResourceFromPath`(string $path) : ImageProcessor`
@@ -193,6 +195,7 @@ $image = new ImageProcessor();
 $image->setResourceFromPath('test.jpg');
 ```
 
+<br/>
 
 <a name="reference-image-processor-set-resource-from-file-data"></a>
 #### `public function` setResourceFromFileData`(string $fileData) : ImageProcessor`
@@ -214,11 +217,13 @@ $image = new ImageProcessor();
 $image->setResourceFromFileData(file_get_contents('test.jpg'));
 ```
 
+<br/>
 
 <a name="reference-image-processor-get-width"></a>
 #### `public function` getWidth`() : int`
 Returns the current width setting.
 
+<br/>
 
 <a name="reference-image-processor-set-width"></a>
 #### `public function` setWidth`(int $width) : ImageProcessor`
@@ -230,7 +235,7 @@ For chainability, this method returns the `ImageProcessor` instance.
 
 Name | Type | Required | Default value | Description
 ---|---|---|---|---
-`$width` | `int` | Yes | _Inherited from source image_ | Maximum output image width
+`$width` | `int` | Yes | n/a, _but if setWidth is never called, value is inherited from source image_ | Maximum output image width
 
 **Example:**
 
@@ -242,11 +247,13 @@ $image
 ;
 ```
 
+<br/>
 
 <a name="reference-image-processor-get-height"></a>
 #### `public function` getHeight`() : int`
 Returns the current height setting.
 
+<br/>
 
 <a name="reference-image-processor-set-height"></a>
 #### `public function` setHeight`(int $height) : ImageProcessor`
@@ -258,7 +265,7 @@ For chainability, this method returns the `ImageProcessor` instance.
 
 Name | Type | Required | Default value | Description
 ---|---|---|---|---
-`$height` | `int` | Yes | _Inherited from source image_ | Maximum output image height
+`$height` | `int` | Yes | n/a, _but if setWidth is never called, value is inherited from source image_ | Maximum output image height
 
 **Example:**
 
@@ -281,12 +288,14 @@ Value | Constant | Description
 ---|---|---
 `1` | `ImageProcessor::OBJECT_FIT_FILL` | The source image is stretched to match the target dimensions. For most images, you probably do not want to use this, as this messes up the aspect ratio.
 `2` | `ImageProcessor::OBJECT_FIT_CONTAIN` | The source image is scaled to fit within the bounding box of the target dimensions, maintaining its aspect-ratio and without cropping. This is the default setting.
-`3` | `ImageProcessor::OBJECT_FIT_COVER` | The source image is scaled to fill the full bounding box of the target dimensions. It will be cropped to fit. 
+
+<br/>`3` | `ImageProcessor::OBJECT_FIT_COVER` | The source image is scaled to fill the full bounding box of the target dimensions. It will be cropped to fit. 
 
 <a name="reference-image-processor-get-object-fit"></a>
 #### `public function` getObjectFit`() : int`
 Returns the current [`object fit`](#reference-image-processor-object-fit) setting.
 
+<br/>
 
 <a name="reference-image-processor-set-object-fit"></a>
 #### `public function` setObjectFit`(int $objectFit = self::OBJECT_FIT_CONTAIN) : ImageProcessor`
@@ -323,12 +332,14 @@ There are 2 possible values:
 Value | Constant | Description
 ---|---|---
 `1` | `ImageProcessor::CANVAS_FIT_KEEP` | The canvas will not be cropped. The output image dimensions will always be set to the specified width and height settings.
-`2` | `ImageProcessor::CANVAS_FIT_CROP` | The canvas will be cropped to fit the containing image. The output image dimensions may differ from the specified width and height settings. This is the default setting.
+
+<br/>`2` | `ImageProcessor::CANVAS_FIT_CROP` | The canvas will be cropped to fit the containing image. The output image dimensions may differ from the specified width and height settings. This is the default setting.
 
 <a name="reference-image-processor-get-canvas-fit"></a>
 #### `public function` getCanvasFit`() : int`
 Returns the current [`canvas fit`](#reference-image-processor-canvas-fit) setting.
 
+<br/>
 
 <a name="reference-image-processor-set-canvas-fit"></a>
 #### `public function` setCanvasFit`(int $canvasFit = self::CANVAS_FIT_CROP) : ImageProcessor`
@@ -368,12 +379,14 @@ Value | Constant | Description
 ---|---|---
 `image/jpeg` | `ImageProcessor::TYPE_JPEG` | JPEG image.
 `image/png` | `ImageProcessor::TYPE_PNG` | PNG-24 image with alpha channel (if applicable).
-`image/gif` | `ImageProcessor::TYPE_GIF` | Gif image with transparency (if applicable).
+
+<br/>`image/gif` | `ImageProcessor::TYPE_GIF` | Gif image with transparency (if applicable).
 
 <a name="reference-image-processor-get-type"></a>
 #### `public function` getType`() : string`
 Returns the current [`type`](#reference-image-processor-type) setting.
 
+<br/>
 
 <a name="reference-image-processor-set-type"></a>
 #### `public function` setType`(string $type = self::TYPE_JPEG) : ImageProcessor`
@@ -411,12 +424,14 @@ Value | Constant | Description
 `25` | `ImageProcessor::QUALITY_LOW` | Low quality.
 `50` | `ImageProcessor::QUALITY_MEDIUM` | Medium quality.
 `75` | `ImageProcessor::QUALITY_HIGH` | High quality.
-`100` | `ImageProcessor::QUALITY_MAXIMUM` | Highest quality.
+
+<br/>`100` | `ImageProcessor::QUALITY_MAXIMUM` | Highest quality.
 
 <a name="reference-image-processor-get-quality"></a>
 #### `public function` getQuality`() : int`
 Returns the current [`quality`](#reference-image-processor-quality) setting.
 
+<br/>
 
 <a name="reference-image-processor-set-quality"></a>
 #### `public function` setQuality`(int $quality = self::QUALITY_HIGH) : ImageProcessor`
@@ -455,12 +470,14 @@ Value | Constant | Description
 ---|---|---
 `TRANSPARENT` | `ImageProcessor::BACKGROUND_TRANSPARENT` | Transparent fill (`gif` and `png` images only).
 `#000000` | `ImageProcessor::BACKGROUND_BLACK` | Black background fill.
-`#FFFFFF` | `ImageProcessor::BACKGROUND_WHITE` | Black background fill.
+
+<br/>`#FFFFFF` | `ImageProcessor::BACKGROUND_WHITE` | Black background fill.
 
 <a name="reference-image-processor-get-background"></a>
 #### `public function` getBackground`() : string`
 Returns the current [`background`](#reference-image-processor-background) setting.
 
+<br/>
 
 <a name="reference-image-processor-set-background"></a>
 #### `public function` setBackground`(string $background = self::QUALITY_HIGH) : ImageProcessor`
@@ -485,6 +502,7 @@ $image
 ;
 ```
 
+<br/>
 
 <a name="reference-image-processor-get-file-data"></a>
 #### `public function` getFileData`(int $encoding = self::DATA_ENCODING_RAW) : string`
@@ -512,6 +530,7 @@ $image->setWidth(100);
 $rawImageData = $image->getFileData();
 ```
 
+<br/>
 
 <a name="reference-image-processor-save"></a>
 #### `public function` save`(string $outputPath) : ImageProcessor`
