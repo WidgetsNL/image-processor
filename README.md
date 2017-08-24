@@ -265,7 +265,7 @@ For chainability, this method returns the `ImageProcessor` instance.
 
 Name | Type | Required | Default value | Description
 ---|---|---|---|---
-`$height` | `int` | Yes | n/a, _but if setWidth is never called, value is inherited from source image_ | Maximum output image height
+`$height` | `int` | Yes | n/a, _but if setHeight is never called, value is inherited from source image_ | Maximum output image height
 
 **Example:**
 
