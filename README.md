@@ -39,13 +39,16 @@ A PHP library to resize / convert images
         - [save()](#reference-image-processor-save)
     - [ImageResource](#reference-image-resource)
 
-## Requirements<a name="requirements"></a>
+<a name="requirements"></a>
+## Requirements
 - PHP 7+
 - [GD library](http://php.net/manual/en/book.image.php)
 
-## Installation<a name="installation"></a>
+<a name="installation"></a>
+## Installation
 
-#### Using Composer<a name="installation-composer"></a>
+<a name="installation-composer"></a>
+#### Using Composer
 Add the repository to your `composer.json`
 ```
 "repositories": [
@@ -61,7 +64,8 @@ Run the following command:
 composer require widgets-nl/image-processor
 ```
 
-### Manual installation<a name="installation-manual"></a>
+<a name="installation-manual"></a>
+### Manual installation
 - Clone or download the project
 - Copy `ImageProcessor.php` and `ImageResource.php` to your directory of choice.
 - Make sure the two files are included/autoloaded, e.g.:
@@ -71,9 +75,11 @@ require_once 'ImageProcessor.php';
 require_once 'ImageResource.php';
 ```
 
-## Usage<a name="usage"></a>
+<a name="usage"></a>
+## Usage
 
-#### Basic usage<a name="usage-basic"></a>
+<a name="usage-basic"></a>
+#### Basic usage
 
 ```php
 <?php
@@ -88,7 +94,8 @@ require_once 'ImageResource.php';
     ;
 ```
 
-#### Specify image type<a name="usage-type"></a>
+<a name="usage-type"></a>
+#### Specify image type
 
 ```php
 <?php
@@ -102,7 +109,8 @@ require_once 'ImageResource.php';
     ;
 ```
 
-#### Output to string<a name="usage-output-raw"></a>
+<a name="usage-output-raw"></a>
+#### Output to string
 
 ```php
 <?php
@@ -121,7 +129,8 @@ require_once 'ImageResource.php';
 ```
 
 
-#### Output to base64 encoded string / base64 data URI<a name="usage-output-base64"></a>
+<a name="usage-output-base64"></a>
+#### Output to base64 encoded string / base64 data URI
 
 ```php
 <?php
@@ -143,11 +152,14 @@ require_once 'ImageResource.php';
 ```
 
 
-## Reference<a name="reference"></a>
+<a name="reference"></a>
+## Reference
 
-### `class` ImageProcessor<a name="reference-image-processor"></a>
+<a name="reference-image-processor"></a>
+### `class` ImageProcessor
 
-#### `public function` __construct`(string $pathOrFileData = '') : ImageProcessor`<a name="reference-image-processor-constructor"></a>
+<a name="reference-image-processor-constructor"></a>
+#### `public function` __construct`(string $pathOrFileData = '') : ImageProcessor`
 Class constructor
 
 **Parameters**
@@ -171,7 +183,8 @@ $image = new ImageProcessor(file_get_contents('test.jpg'));
 ```
 
 
-#### `public function` setResourceFromPath`(string $path) : ImageProcessor`<a name="reference-image-processor-set-resource-from-path"></a>
+<a name="reference-image-processor-set-resource-from-path"></a>
+#### `public function` setResourceFromPath`(string $path) : ImageProcessor`
 Loads image from specified path.
 Creates an [`ImageResource`](#reference-image-resource) instance internally.
 
@@ -191,7 +204,8 @@ $image->setResourceFromPath('test.jpg');
 ```
 
 
-#### `public function` setResourceFromFileData`(string $fileData) : ImageProcessor`<a name="reference-image-processor-set-resource-from-file-data"></a>
+<a name="reference-image-processor-set-resource-from-file-data"></a>
+#### `public function` setResourceFromFileData`(string $fileData) : ImageProcessor`
 Loads image from raw image data.
 Creates an [`ImageResource`](#reference-image-resource) instance internally.
 
@@ -211,11 +225,13 @@ $image->setResourceFromFileData(file_get_contents('test.jpg'));
 ```
 
 
-#### `public function` getWidth`() : int`<a name="reference-image-processor-get-width"></a>
+<a name="reference-image-processor-get-width"></a>
+#### `public function` getWidth`() : int`
 Returns the current width setting.
 
 
-#### `public function` setWidth`(int $width) : ImageProcessor`<a name="reference-image-processor-set-width"></a>
+<a name="reference-image-processor-set-width"></a>
+#### `public function` setWidth`(int $width) : ImageProcessor`
 Set the width of the output image.
 
 For chainability, this method returns the `ImageProcessor` instance.
@@ -237,11 +253,13 @@ $image
 ```
 
 
-#### `public function` getHeight`() : int`<a name="reference-image-processor-get-height"></a>
+<a name="reference-image-processor-get-height"></a>
+#### `public function` getHeight`() : int`
 Returns the current height setting.
 
 
-#### `public function` setHeight`(int $height) : ImageProcessor`<a name="reference-image-processor-set-height"></a>
+<a name="reference-image-processor-set-height"></a>
+#### `public function` setHeight`(int $height) : ImageProcessor`
 Set the height of the output image.
 
 For chainability, this method returns the `ImageProcessor` instance.
@@ -263,7 +281,8 @@ $image
 ```
 
  
-#### Object fit<a name="reference-image-processor-object-fit"></a>
+ <a name="reference-image-processor-object-fit"></a>
+#### Object fit
 The object fit setting is inspired by the [`object-fit` CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) and works pretty much the same way.
 
 There are 3 possible values:
@@ -274,11 +293,13 @@ Value | Constant | Description
 `2` | `ImageProcessor::OBJECT_FIT_CONTAIN` | The source image is scaled to fit within the bounding box of the target dimensions, maintaining its aspect-ratio and without cropping. This is the default setting.
 `3` | `ImageProcessor::OBJECT_FIT_COVER` | The source image is scaled to fill the full bounding box of the target dimensions. It will be cropped to fit. 
 
-#### `public function` getObjectFit`() : int`<a name="reference-image-processor-get-object-fit"></a>
+<a name="reference-image-processor-get-object-fit"></a>
+#### `public function` getObjectFit`() : int`
 Returns the current [`object fit`](#reference-image-processor-object-fit) setting.
 
 
-#### `public function` setObjectFit`(int $objectFit = self::OBJECT_FIT_CONTAIN) : ImageProcessor`<a name="reference-image-processor-set-object-fit"></a>
+<a name="reference-image-processor-set-object-fit"></a>
+#### `public function` setObjectFit`(int $objectFit = self::OBJECT_FIT_CONTAIN) : ImageProcessor`
 Set the [`object fit`](#reference-image-processor-object-fit) setting to be applied to the image upon output.
 
 For chainability, this method returns the `ImageProcessor` instance.
@@ -302,7 +323,8 @@ $image
 ```
 
  
-#### Canvas fit<a name="reference-image-processor-canvas-fit"></a>
+ <a name="reference-image-processor-canvas-fit"></a>
+#### Canvas fit
 The canvas fit setting determines whether or not the output image canvas must be cropped to match the image.
 This setting is only relevant when setting the [`object fit`](#reference-image-processor-object-fit) setting to `ImageProcessor::OBJECT_FIT_CONTAIN`
 
@@ -313,11 +335,13 @@ Value | Constant | Description
 `1` | `ImageProcessor::CANVAS_FIT_KEEP` | The canvas will not be cropped. The output image dimensions will always be set to the specified width and height settings.
 `2` | `ImageProcessor::CANVAS_FIT_CROP` | The canvas will be cropped to fit the containing image. The output image dimensions may differ from the specified width and height settings. This is the default setting.
 
-#### `public function` getCanvasFit`() : int`<a name="reference-image-processor-get-canvas-fit"></a>
+<a name="reference-image-processor-get-canvas-fit"></a>
+#### `public function` getCanvasFit`() : int`
 Returns the current [`canvas fit`](#reference-image-processor-canvas-fit) setting.
 
 
-#### `public function` setCanvasFit`(int $canvasFit = self::CANVAS_FIT_CROP) : ImageProcessor`<a name="reference-image-processor-set-canvas-fit"></a>
+<a name="reference-image-processor-set-canvas-fit"></a>
+#### `public function` setCanvasFit`(int $canvasFit = self::CANVAS_FIT_CROP) : ImageProcessor`
 Set the [`canvas fit`](#reference-image-processor-canvas-fit) setting to be applied to the image upon output.
 
 For chainability, this method returns the `ImageProcessor` instance.
@@ -341,7 +365,8 @@ $image
 ```
 
  
-#### Type (mimetype)<a name="reference-image-processor-type"></a>
+ <a name="reference-image-processor-type"></a>
+#### Type (mimetype)
 When loading an image from a file path, the output file type will automatically be of the same type by default.
 When no type can be determined (e.g. when loading an image from raw image data), `image/jpeg` will be used by default.
 
@@ -355,11 +380,13 @@ Value | Constant | Description
 `image/png` | `ImageProcessor::TYPE_PNG` | PNG-24 image with alpha channel (if applicable).
 `image/gif` | `ImageProcessor::TYPE_GIF` | Gif image with transparency (if applicable).
 
-#### `public function` getType`() : string`<a name="reference-image-processor-get-type"></a>
+<a name="reference-image-processor-get-type"></a>
+#### `public function` getType`() : string`
 Returns the current [`type`](#reference-image-processor-type) setting.
 
 
-#### `public function` setType`(string $type = self::TYPE_JPEG) : ImageProcessor`<a name="reference-image-processor-set-type"></a>
+<a name="reference-image-processor-set-type"></a>
+#### `public function` setType`(string $type = self::TYPE_JPEG) : ImageProcessor`
 Set the [`type`](#reference-image-processor-type) to be used on the output image.
 
 For chainability, this method returns the `ImageProcessor` instance.
@@ -381,7 +408,8 @@ $image
 ```
 
  
-#### Quality<a name="reference-image-processor-quality"></a>
+ <a name="reference-image-processor-quality"></a>
+#### Quality
 Sets the image quality (compression level) to be used on the output image.
 
 This setting does not apply to `gif` images, and has little to no effect on most `png` images.
@@ -395,11 +423,13 @@ Value | Constant | Description
 `75` | `ImageProcessor::QUALITY_HIGH` | High quality.
 `100` | `ImageProcessor::QUALITY_MAXIMUM` | Highest quality.
 
-#### `public function` getQuality`() : int`<a name="reference-image-processor-get-quality"></a>
+<a name="reference-image-processor-get-quality"></a>
+#### `public function` getQuality`() : int`
 Returns the current [`quality`](#reference-image-processor-quality) setting.
 
 
-#### `public function` setQuality`(int $quality = self::QUALITY_HIGH) : ImageProcessor`<a name="reference-image-processor-set-quality"></a>
+<a name="reference-image-processor-set-quality"></a>
+#### `public function` setQuality`(int $quality = self::QUALITY_HIGH) : ImageProcessor`
 Set the [`quality`](#reference-image-processor-quality) setting to be applied to the image upon output.
 
 For chainability, this method returns the `ImageProcessor` instance.
@@ -421,7 +451,8 @@ $image
 ```
 
  
-#### Background fill<a name="reference-image-processor-background"></a>
+ <a name="reference-image-processor-background"></a>
+#### Background fill
 Sets the background fill style/color to be used on the output image.
 
 The background may be set to **any valid hex color** (e.g. #FF0000), but the short (#F00) notation is not supported.
@@ -436,11 +467,13 @@ Value | Constant | Description
 `#000000` | `ImageProcessor::BACKGROUND_BLACK` | Black background fill.
 `#FFFFFF` | `ImageProcessor::BACKGROUND_WHITE` | Black background fill.
 
-#### `public function` getBackground`() : string`<a name="reference-image-processor-get-background"></a>
+<a name="reference-image-processor-get-background"></a>
+#### `public function` getBackground`() : string`
 Returns the current [`background`](#reference-image-processor-background) setting.
 
 
-#### `public function` setBackground`(string $background = self::QUALITY_HIGH) : ImageProcessor`<a name="reference-image-processor-set-background"></a>
+<a name="reference-image-processor-set-background"></a>
+#### `public function` setBackground`(string $background = self::QUALITY_HIGH) : ImageProcessor`
 Set the [`background`](#reference-image-processor-background) setting to be applied to the image upon output.
 
 For chainability, this method returns the `ImageProcessor` instance.
@@ -463,7 +496,8 @@ $image
 ```
 
 
-#### `public function` getFileData`(int $encoding = self::DATA_ENCODING_RAW) : string`<a name="reference-image-processor-get-file-data"></a>
+<a name="reference-image-processor-get-file-data"></a>
+#### `public function` getFileData`(int $encoding = self::DATA_ENCODING_RAW) : string`
 Returns the output image as a string of image data.
 
 The data encoding may be specified using the `encoding` parameter, which can be set to one of:
@@ -489,7 +523,8 @@ $rawImageData = $image->getFileData();
 ```
 
 
-#### `public function` save`(string $outputPath) : ImageProcessor`<a name="reference-image-processor-save"></a>
+<a name="reference-image-processor-save"></a>
+#### `public function` save`(string $outputPath) : ImageProcessor`
 Saves the output image to given path.
 
 For chainability, this method returns the `ImageProcessor` instance.
@@ -511,5 +546,6 @@ $image
 ```
 
 
-### `class` ImageResource<a name="reference-image-resource"></a>
+<a name="reference-image-resource"></a>
+### `class` ImageResource
 This class is used internally and has no accessible public members or methods.
