@@ -118,6 +118,7 @@ require_once 'ImageResource.php';
     echo $imageData;
 ```
 
+<br/>
 
 <a name="usage-output-base64"></a>
 #### Output to base64 encoded string / base64 data URI
@@ -141,13 +142,13 @@ require_once 'ImageResource.php';
 <!-- This will output src="data:image/jpeg;base64, ... ... " -->
 ```
 
+<br/>
 
 <a name="reference"></a>
 ## Reference
 
 <a name="reference-image-processor"></a>
-
-<br/>### `class` ImageProcessor
+### `class` ImageProcessor
 
 <a name="reference-image-processor-constructor"></a>
 #### `public function` __construct`(string $pathOrFileData = '') : ImageProcessor`
@@ -277,8 +278,9 @@ $image
 ;
 ```
 
- 
- <a name="reference-image-processor-object-fit"></a>
+<br/>
+
+<a name="reference-image-processor-object-fit"></a>
 #### Object fit
 The object fit setting is inspired by the [`object-fit` CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) and works pretty much the same way.
 
@@ -288,8 +290,7 @@ Value | Constant | Description
 ---|---|---
 `1` | `ImageProcessor::OBJECT_FIT_FILL` | The source image is stretched to match the target dimensions. For most images, you probably do not want to use this, as this messes up the aspect ratio.
 `2` | `ImageProcessor::OBJECT_FIT_CONTAIN` | The source image is scaled to fit within the bounding box of the target dimensions, maintaining its aspect-ratio and without cropping. This is the default setting.
-
-<br/>`3` | `ImageProcessor::OBJECT_FIT_COVER` | The source image is scaled to fill the full bounding box of the target dimensions. It will be cropped to fit. 
+`3` | `ImageProcessor::OBJECT_FIT_COVER` | The source image is scaled to fill the full bounding box of the target dimensions. It will be cropped to fit. 
 
 <a name="reference-image-processor-get-object-fit"></a>
 #### `public function` getObjectFit`() : int`
@@ -321,8 +322,9 @@ $image
 ;
 ```
 
- 
- <a name="reference-image-processor-canvas-fit"></a>
+<br/>
+
+<a name="reference-image-processor-canvas-fit"></a>
 #### Canvas fit
 The canvas fit setting determines whether or not the output image canvas must be cropped to match the image.
 This setting is only relevant when setting the [`object fit`](#reference-image-processor-object-fit) setting to `ImageProcessor::OBJECT_FIT_CONTAIN`
@@ -332,8 +334,7 @@ There are 2 possible values:
 Value | Constant | Description
 ---|---|---
 `1` | `ImageProcessor::CANVAS_FIT_KEEP` | The canvas will not be cropped. The output image dimensions will always be set to the specified width and height settings.
-
-<br/>`2` | `ImageProcessor::CANVAS_FIT_CROP` | The canvas will be cropped to fit the containing image. The output image dimensions may differ from the specified width and height settings. This is the default setting.
+`2` | `ImageProcessor::CANVAS_FIT_CROP` | The canvas will be cropped to fit the containing image. The output image dimensions may differ from the specified width and height settings. This is the default setting.
 
 <a name="reference-image-processor-get-canvas-fit"></a>
 #### `public function` getCanvasFit`() : int`
@@ -365,8 +366,9 @@ $image
 ;
 ```
 
- 
- <a name="reference-image-processor-type"></a>
+<br/>
+
+<a name="reference-image-processor-type"></a>
 #### Type (mimetype)
 When loading an image from a file path, the output file type will automatically be of the same type by default.
 When no type can be determined (e.g. when loading an image from raw image data), `image/jpeg` will be used by default.
@@ -379,8 +381,7 @@ Value | Constant | Description
 ---|---|---
 `image/jpeg` | `ImageProcessor::TYPE_JPEG` | JPEG image.
 `image/png` | `ImageProcessor::TYPE_PNG` | PNG-24 image with alpha channel (if applicable).
-
-<br/>`image/gif` | `ImageProcessor::TYPE_GIF` | Gif image with transparency (if applicable).
+`image/gif` | `ImageProcessor::TYPE_GIF` | Gif image with transparency (if applicable).
 
 <a name="reference-image-processor-get-type"></a>
 #### `public function` getType`() : string`
@@ -410,8 +411,9 @@ $image
 ;
 ```
 
- 
- <a name="reference-image-processor-quality"></a>
+<br/>
+
+<a name="reference-image-processor-quality"></a>
 #### Quality
 Sets the image quality (compression level) to be used on the output image.
 
@@ -424,8 +426,7 @@ Value | Constant | Description
 `25` | `ImageProcessor::QUALITY_LOW` | Low quality.
 `50` | `ImageProcessor::QUALITY_MEDIUM` | Medium quality.
 `75` | `ImageProcessor::QUALITY_HIGH` | High quality.
-
-<br/>`100` | `ImageProcessor::QUALITY_MAXIMUM` | Highest quality.
+`100` | `ImageProcessor::QUALITY_MAXIMUM` | Highest quality.
 
 <a name="reference-image-processor-get-quality"></a>
 #### `public function` getQuality`() : int`
@@ -455,8 +456,9 @@ $image
 ;
 ```
 
- 
- <a name="reference-image-processor-background"></a>
+<br/>
+
+<a name="reference-image-processor-background"></a>
 #### Background fill
 Sets the background fill style/color to be used on the output image.
 
@@ -470,8 +472,7 @@ Value | Constant | Description
 ---|---|---
 `TRANSPARENT` | `ImageProcessor::BACKGROUND_TRANSPARENT` | Transparent fill (`gif` and `png` images only).
 `#000000` | `ImageProcessor::BACKGROUND_BLACK` | Black background fill.
-
-<br/>`#FFFFFF` | `ImageProcessor::BACKGROUND_WHITE` | Black background fill.
+`#FFFFFF` | `ImageProcessor::BACKGROUND_WHITE` | Black background fill.
 
 <a name="reference-image-processor-get-background"></a>
 #### `public function` getBackground`() : string`
@@ -554,6 +555,7 @@ $image
 ;
 ```
 
+<br/>
 
 <a name="reference-image-resource"></a>
 ### `class` ImageResource
