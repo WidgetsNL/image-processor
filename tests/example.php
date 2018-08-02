@@ -10,7 +10,6 @@
 //    $image = new ImageProcessor('sample_images/square.jpg');
 //    $image = new ImageProcessor('sample_images/alpha-channel.png');
 //    $image = new ImageProcessor('sample_images/exif-rotation.jpg');
-//    $image = new ImageProcessor('sample_images/exif-rotation.jpg');
 
     $image
         ->setObjectFit(ImageProcessor::OBJECT_FIT_COVER)

@@ -139,7 +139,7 @@ class ImageProcessor {
                 }
             }
         }
-error_log('orientationCorrection 1: ' . $this->orientationCorrection);
+
         $this->setResourceFromFileData(file_get_contents($path));
         return $this;
     }
