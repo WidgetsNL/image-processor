@@ -74,7 +74,13 @@ class ImageProcessor {
     private $background;
 
     /**
+     * @var int
+     */
+    private $orientationCorrection = 0;
+
+    /**
      * @param string $pathOrFileData
+     * @throws \Exception
      */
     function __construct(string $pathOrFileData = '')
     {
@@ -120,6 +126,20 @@ class ImageProcessor {
                     if ( !$this->type ) $this->setType(self::TYPE_JPEG);
             }
         }
+
+        // Check the exif data for orientation correction
+        $exif = @exif_read_data($path);
+        $this->orientationCorrection = 0;
+        if ($exif) {
+            if (isset($exif['Orientation'])) {
+                if ($exif['Orientation'] == 6 || $exif['Orientation'] == 8) {
+                    $this->orientationCorrection = ($exif['Orientation'] == 6 ? -90 : 90);
+                } else if ($exif['Orientation'] == 3) {
+                    $this->orientationCorrection = 180;
+                }
+            }
+        }
+
         $this->setResourceFromFileData(file_get_contents($path));
         return $this;
     }
@@ -344,6 +364,17 @@ class ImageProcessor {
 
         $sourceWidth = $this->getSource()->getWidth();
         $sourceHeight = $this->getSource()->getHeight();
+
+        if (abs($this->orientationCorrection) === 90) {
+            list($sourceWidth, $sourceHeight) = [$sourceHeight, $sourceWidth];
+        }
+        if ( $this->orientationCorrection) {
+            $sourceImage = $this->getSource()->getResource();
+            $this->getSource()->setResource(
+                imagerotate($sourceImage, $this->orientationCorrection, 0)
+            );
+        }
+
         $sourceRatio = $sourceWidth / $sourceHeight;
 
         $targetWidth = $this->getWidth() ?: $sourceWidth;
