@@ -177,6 +177,42 @@ use WidgetsNL\ImageProcessor\ImageProcessor;
         </div>
 
     </div>
+    <div class="row">
+
+		<div class="col-md-6 col-lg-4">
+			<h2>90 deg. Exif orientation > 100x100</h2>
+			<div class="well">
+                <?php
+                $image = new ImageProcessor('sample_images/exif-rotation.jpg');
+                $image->setWidth(100)->setHeight(100)
+                ?>
+				<img src="<?php echo $image->getFileData(ImageProcessor::DATA_ENCODING_BASE64_DATA_URI); ?>" alt="">
+			</div>
+		</div>
+
+		<div class="col-md-6 col-lg-4">
+			<h2>90 deg. Exif orientation > 100x300</h2>
+			<div class="well">
+                <?php
+                $image = new ImageProcessor('sample_images/exif-rotation.jpg');
+                $image->setWidth(100)->setHeight(300)
+                ?>
+				<img src="<?php echo $image->getFileData(ImageProcessor::DATA_ENCODING_BASE64_DATA_URI); ?>" alt="">
+			</div>
+		</div>
+
+		<div class="col-md-6 col-lg-4">
+			<h2>90 deg. Exif orientation > 300x100</h2>
+			<div class="well">
+                <?php
+                $image = new ImageProcessor('sample_images/exif-rotation.jpg');
+                $image->setWidth(300)->setHeight(100)
+                ?>
+				<img src="<?php echo $image->getFileData(ImageProcessor::DATA_ENCODING_BASE64_DATA_URI); ?>" alt="">
+			</div>
+		</div>
+
+    </div>
 
     <hr>
 
@@ -289,6 +325,42 @@ use WidgetsNL\ImageProcessor\ImageProcessor;
         </div>
 
     </div>
+	<div class="row">
+
+		<div class="col-md-6 col-lg-4">
+			<h2>90 deg. Exif orientation > 100x100</h2>
+			<div class="well">
+                <?php
+                $image = new ImageProcessor('sample_images/exif-rotation.jpg');
+                $image->setWidth(100)->setHeight(100)->setObjectFit(ImageProcessor::OBJECT_FIT_COVER)
+                ?>
+				<img src="<?php echo $image->getFileData(ImageProcessor::DATA_ENCODING_BASE64_DATA_URI); ?>" alt="">
+			</div>
+		</div>
+
+		<div class="col-md-6 col-lg-4">
+			<h2>90 deg. Exif orientation > 100x300</h2>
+			<div class="well">
+                <?php
+                $image = new ImageProcessor('sample_images/exif-rotation.jpg');
+                $image->setWidth(100)->setHeight(300)->setObjectFit(ImageProcessor::OBJECT_FIT_COVER)
+                ?>
+				<img src="<?php echo $image->getFileData(ImageProcessor::DATA_ENCODING_BASE64_DATA_URI); ?>" alt="">
+			</div>
+		</div>
+
+		<div class="col-md-6 col-lg-4">
+			<h2>90 deg. Exif orientation > 300x100</h2>
+			<div class="well">
+                <?php
+                $image = new ImageProcessor('sample_images/exif-rotation.jpg');
+                $image->setWidth(300)->setHeight(100)->setObjectFit(ImageProcessor::OBJECT_FIT_COVER)
+                ?>
+				<img src="<?php echo $image->getFileData(ImageProcessor::DATA_ENCODING_BASE64_DATA_URI); ?>" alt="">
+			</div>
+		</div>
+
+	</div>
 
     <hr>
     <hr>
@@ -403,6 +475,42 @@ use WidgetsNL\ImageProcessor\ImageProcessor;
         </div>
 
     </div>
+    <div class="row">
+
+        <div class="col-md-6 col-lg-4">
+            <h2>90 deg. Exif orientation > 300x100 > 100x100</h2>
+            <div class="well">
+                <?php
+                $image = new ImageProcessor('sample_images/exif-rotation.jpg');
+                $image->setWidth(100)->setHeight(100)->setCanvasFit(ImageProcessor::CANVAS_FIT_KEEP)
+                ?>
+                <img src="<?php echo $image->getFileData(ImageProcessor::DATA_ENCODING_BASE64_DATA_URI); ?>" alt="">
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <h2>90 deg. Exif orientation > 300x100 > 100x300</h2>
+            <div class="well">
+                <?php
+                $image = new ImageProcessor('sample_images/exif-rotation.jpg');
+                $image->setWidth(100)->setHeight(300)->setCanvasFit(ImageProcessor::CANVAS_FIT_KEEP)
+                ?>
+                <img src="<?php echo $image->getFileData(ImageProcessor::DATA_ENCODING_BASE64_DATA_URI); ?>" alt="">
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <h2>90 deg. Exif orientation > 300x100 > 300x100</h2>
+            <div class="well">
+                <?php
+                $image = new ImageProcessor('sample_images/exif-rotation.jpg');
+                $image->setWidth(300)->setHeight(100)->setCanvasFit(ImageProcessor::CANVAS_FIT_KEEP)
+                ?>
+                <img src="<?php echo $image->getFileData(ImageProcessor::DATA_ENCODING_BASE64_DATA_URI); ?>" alt="">
+            </div>
+        </div>
+
+    </div>
 
     <hr>
 
@@ -508,6 +616,42 @@ use WidgetsNL\ImageProcessor\ImageProcessor;
             <div class="well">
                 <?php
                 $image = new ImageProcessor('sample_images/square.jpg');
+                $image->setWidth(300)->setHeight(100)->setObjectFit(ImageProcessor::OBJECT_FIT_COVER)->setCanvasFit(ImageProcessor::CANVAS_FIT_KEEP)
+                ?>
+                <img src="<?php echo $image->getFileData(ImageProcessor::DATA_ENCODING_BASE64_DATA_URI); ?>" alt="">
+            </div>
+        </div>
+
+    </div>
+	<div class="row">
+
+        <div class="col-md-6 col-lg-4">
+            <h2>90 deg. Exif orientation > 300x100 > 100x100</h2>
+            <div class="well">
+                <?php
+                $image = new ImageProcessor('sample_images/exif-rotation.jpg');
+                $image->setWidth(100)->setHeight(100)->setObjectFit(ImageProcessor::OBJECT_FIT_COVER)->setCanvasFit(ImageProcessor::CANVAS_FIT_KEEP)
+                ?>
+                <img src="<?php echo $image->getFileData(ImageProcessor::DATA_ENCODING_BASE64_DATA_URI); ?>" alt="">
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <h2>90 deg. Exif orientation > 300x100 > 100x300</h2>
+            <div class="well">
+                <?php
+                $image = new ImageProcessor('sample_images/exif-rotation.jpg');
+                $image->setWidth(100)->setHeight(300)->setObjectFit(ImageProcessor::OBJECT_FIT_COVER)->setCanvasFit(ImageProcessor::CANVAS_FIT_KEEP)
+                ?>
+                <img src="<?php echo $image->getFileData(ImageProcessor::DATA_ENCODING_BASE64_DATA_URI); ?>" alt="">
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <h2>90 deg. Exif orientation > 300x100 > 300x100</h2>
+            <div class="well">
+                <?php
+                $image = new ImageProcessor('sample_images/exif-rotation.jpg');
                 $image->setWidth(300)->setHeight(100)->setObjectFit(ImageProcessor::OBJECT_FIT_COVER)->setCanvasFit(ImageProcessor::CANVAS_FIT_KEEP)
                 ?>
                 <img src="<?php echo $image->getFileData(ImageProcessor::DATA_ENCODING_BASE64_DATA_URI); ?>" alt="">
